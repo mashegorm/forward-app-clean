@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forward Access</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<section id="authScreen" class="auth-screen">
+  <div class="auth-wrap">
+    <div class="brand">Forward.</div>
+    <div class="kicker">SOUTH AFRICAN ACCESS NETWORK</div>
+
+    <h1><span>Premium</span> <span>Room.</span></h1>
+
+    <p class="lead">A private access company for individuals, businesses, exclusive rooms and opportunities.</p>
+
+    <div class="auth-card">
+      <h2>Enter Forward</h2>
+      <p class="hint">Create your access profile once. After that, return with the same email or phone number.</p>
+
+      <input id="fullName" placeholder="Name & surname" />
+      <input id="contact" placeholder="Email or phone number" />
+
+      <select id="province">
+        <option value="">Province</option>
+        <option>Eastern Cape</option><option>Free State</option><option>Gauteng</option>
+        <option>KwaZulu-Natal</option><option>Limpopo</option><option>Mpumalanga</option>
+        <option>Northern Cape</option><option>North West</option><option>Western Cape</option>
+      </select>
+
+      <select id="ageRange">
+        <option value="">Age range</option>
+        <option>18–24</option><option>25–34</option><option>35–44</option>
+        <option>45–54</option><option>55–65</option>
+      </select>
+
+      <select id="industry">
+        <option value="">Industry / Interest</option>
+        <option>SMMEs</option><option>Farmers</option><option>Funding & Grants</option>
+        <option>E-commerce</option><option>Green Sector</option><option>Technology & Digital Skills</option>
+        <option>Creatives & Media</option><option>NGOs & NPOs</option><option>Learnerships</option>
+        <option>People Living With Disabilities</option><option>Unemployed Youth</option>
+        <option>Unemployed General</option><option>Other</option>
+      </select>
+
+      <label class="consent"><input id="consent" type="checkbox" /> <span>I agree to Forward capturing and storing my information for membership, communication, access, and platform experience purposes.</span></label>
+
+      <button id="joinForward" class="primary">Join Forward</button>
+    </div>
+  </div>
+</section>
+
+<section id="loadingScreen" class="loading-screen hidden">
+  <div class="f-logo">F</div>
+  <p>Preparing your access...</p>
+</section>
+
+<main id="app" class="app hidden">
+  <header class="app-top">
+    <div>
+      <div class="brand small">Forward.</div>
+      <p id="statusLine">Access active</p>
+    </div>
+    <button id="adminSwitch" class="pill">Admin</button>
+  </header>
+
+  <section id="home" class="page active">
+    <div class="stories">
+      <button class="story active"><span>F</span><small>Forward</small></button>
+      <button class="story"><span>C</span><small>Capital</small></button>
+      <button class="story"><span>E</span><small>Events</small></button>
+      <button class="story"><span>P</span><small>Partners</small></button>
+      <button class="story"><span>R</span><small>Rooms</small></button>
+    </div>
+
+    <div class="hero-card">
+      <p class="kicker">WELCOME TO ACCESS</p>
+      <h2>A private digital room for people ready to move closer to opportunity.</h2>
+    </div>
+
+    <article class="feed-card">
+      <div class="feed-head"><span>Forward</span><small>Opportunity Update</small></div>
+      <h3>Welcome To Access.</h3>
+      <p>Forward connects people, opportunities, rooms, and real movement.</p>
+      <div class="actions">
+        <button class="like">♡ <span>12</span></button>
+        <button class="comment">Comment</button>
+        <button class="share">Share</button>
+      </div>
+    </article>
+
+    <article class="feed-card">
+      <div class="feed-head"><span>Forward</span><small>Access Note</small></div>
+      <h3>The Future Of South African Wealth Is Human Capital.</h3>
+      <p>South Africa does not lack talent. It lacks access, alignment, and proximity to opportunity.</p>
+      <div class="actions">
+        <button class="like">♡ <span>21</span></button>
+        <button class="comment">Comment</button>
+        <button class="share">Share</button>
+      </div>
+    </article>
+  </section>
+
+  <section id="rooms" class="page">
+    <div class="section-head">
+      <p class="kicker">ROOMS</p>
+      <button id="addRoomBtn" class="admin-only mini hidden">+ Room</button>
+    </div>
+    <div id="roomList"></div>
+  </section>
+
+  <section id="roomView" class="page">
+    <button id="backRooms" class="back">← Rooms</button>
+    <div class="room-title">
+      <h2 id="roomTitle">General Access</h2>
+      <p id="roomState">Open room</p>
+    </div>
+    <div id="roomAdminTools" class="admin-panel admin-only hidden">
+      <button id="toggleRoomLock">Lock / Unlock</button>
+      <button id="toggleReadOnly">Read-only / Open Chat</button>
+      <button>Add image / PDF / link</button>
+    </div>
+    <div id="messages" class="messages"></div>
+    <div id="messageComposer" class="composer">
+      <input id="messageInput" placeholder="Write a message..." />
+      <button id="sendMessage">Send</button>
+    </div>
+  </section>
+
+  <section id="reels" class="page">
+    <p class="kicker">REELS</p>
+    <div class="reel-card"><div><h2>Inside Forward</h2><p>Rooms. Access. Movement.</p></div></div>
+    <div class="admin-panel admin-only hidden"><button>Add Reel</button><button>Manage Reels</button></div>
+  </section>
+
+  <section id="market" class="page">
+    <div class="section-head">
+      <p class="kicker">MARKETPLACE</p>
+      <button class="admin-only mini hidden">+ Offer</button>
+    </div>
+    <div class="market-card">
+      <div class="product-image">Essentials</div>
+      <h3>Essentials Membership</h3><p>R199 / month</p><button>Apply</button>
+    </div>
+    <div class="market-card">
+      <div class="product-image">Breakthrough</div>
+      <h3>Breakthrough Membership</h3><p>R499 / month</p><button>Join</button>
+    </div>
+    <div class="market-card">
+      <div class="product-image">Premium</div>
+      <h3>Premium Experience</h3><p>R699 / month</p><button>Reserve</button>
+    </div>
+  </section>
+
+  <section id="profile" class="page">
+    <p class="kicker">PROFILE</p>
+    <div class="profile-card">
+      <div class="profile-top">
+        <div class="avatar" id="avatar">F</div>
+        <div>
+          <h2 id="memberName">Forward Member</h2>
+          <p id="memberMeta">Level 1 • General Access</p>
+        </div>
+      </div>
+
+      <div class="profile-grid">
+        <div><small>Province</small><strong id="memberProvince">-</strong></div>
+        <div><small>Industry</small><strong id="memberIndustry">-</strong></div>
+        <div><small>Age Range</small><strong id="memberAge">-</strong></div>
+        <div><small>Status</small><strong>Active</strong></div>
+        <div><small>Profile Views</small><strong>23</strong></div>
+        <div><small>Rank</small><strong>Level 1</strong></div>
+      </div>
+
+      <div class="thought">“Closer to the right rooms.”</div>
+
+      <div class="earn-card">
+        <p class="kicker">FORWARD EARN</p>
+        <h3>R0.00</h3>
+        <p>Coming soon: earn through referrals, campaigns, opportunity sharing and verified ecosystem activity.</p>
+      </div>
+
+      <div class="links">
+        <button>Visit Website</button>
+        <button>Instagram</button>
+        <button>Facebook</button>
+        <button>LinkedIn</button>
+        <button>YouTube</button>
+      </div>
+
+      <div id="adminHQ" class="admin-panel admin-only hidden">
+        <h3>Admin HQ</h3>
+        <button>Create Feed Post</button>
+        <button>Manage Rooms</button>
+        <button>Assign Admin / Partner</button>
+        <button>Manage Marketplace</button>
+        <button>Manage Events</button>
+      </div>
+    </div>
+  </section>
+
+  <nav class="bottom-nav">
+    <button data-page="home" class="nav active">Home</button>
+    <button data-page="rooms" class="nav">Rooms</button>
+    <button data-page="reels" class="nav">Reels</button>
+    <button data-page="market" class="nav">Market</button>
+    <button data-page="profile" class="nav">Profile</button>
+  </nav>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
