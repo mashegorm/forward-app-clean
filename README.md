@@ -1,1 +1,0 @@
-Forward V28 Supabase Fixed
