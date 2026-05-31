@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FORWARD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <section id="auth" class="auth-screen">
+    <div class="auth-shell">
+      <div class="brand">Forward.</div>
+      <div class="network login-network">PRIVATE ACCESS INFRASTRUCTURE</div>
+      <p class="intro">Private and premium access rooms for South Africans moving closer to opportunity, alignment, visibility and economic participation.</p>
+
+      <div class="auth-card">
+        <div class="tabs">
+          <button id="joinTab" class="tab active">Join Forward</button>
+          <button id="signinTab" class="tab">Sign In</button>
+        </div>
+
+        <form id="joinForm" class="form">
+          <div class="two">
+            <input id="firstName" placeholder="Name" autocomplete="given-name" required />
+            <input id="surname" placeholder="Surname" autocomplete="family-name" required />
+          </div>
+          <input id="email" type="email" placeholder="Email address" autocomplete="email" required />
+          <input id="phone" placeholder="Phone number" autocomplete="tel" required />
+          <label class="checkline"><input id="southAfrican" type="checkbox" required /> <span>I confirm that I am South African.</span></label>
+          <input id="idNumber" placeholder="South African ID number" inputmode="numeric" maxlength="13" required />
+          <select id="gender" required>
+            <option value="">Gender</option>
+            <option>Man</option>
+            <option>Woman</option>
+          </select>
+          <select id="province" required>
+            <option value="">Province</option>
+            <option>Eastern Cape</option><option>Free State</option><option>Gauteng</option><option>KwaZulu-Natal</option>
+            <option>Limpopo</option><option>Mpumalanga</option><option>Northern Cape</option><option>North West</option><option>Western Cape</option>
+          </select>
+          <select id="ageRange" required>
+            <option value="">Age range</option>
+            <option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55–65</option>
+          </select>
+          <select id="industry" required>
+            <option value="">Industry / Room interest</option>
+          </select>
+          <label class="consent"><input id="consent" type="checkbox" required /> <span>I agree to Forward capturing and storing my information for membership, communication, access, and platform experience purposes.</span></label>
+          <button class="primary" type="submit">Join Forward</button>
+        </form>
+
+        <form id="signinForm" class="form hidden">
+          <input id="signinId" placeholder="Enter your South African ID number" inputmode="numeric" maxlength="13" required />
+          <button class="primary" type="submit">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="loading" class="loading hidden">
+    <div class="f-logo image-logo"><img src="assets/forward-loading-f-v14.png" alt="Forward F" /></div>
+    <p>Preparing your access...</p>
+  </section>
+
+  <main id="app" class="app hidden">
+    <header class="topbar">
+      <div>
+        <div class="brand small">Forward.</div>
+        <p id="memberLine">Rooms</p>
+      </div>
+      <div class="top-actions">
+        <button id="vaultBtn" class="ghost vault-btn">Vault</button>
+        <button id="adminToggle" class="ghost">Admin</button>
+        <button id="logoutBtn" class="ghost">Exit</button>
+      </div>
+    </header>
+
+    <div id="adminUnlockBox" class="admin-unlock hidden">
+      <h3>Admin Access</h3>
+      <p>Enter the private Forward admin code to manage rooms and approvals.</p>
+      <input id="adminCodeInput" placeholder="Admin code" />
+      <button id="unlockAdminBtn">Unlock Admin Controls</button>
+    </div>
+
+    <section id="roomsPage" class="page active">
+      <div class="page-title">
+        <p class="network">FORWARD</p>
+        <h2>Access</h2>
+        <p>Welcome! General Access is open. Specialist rooms are request-based until approved by admin.</p>
+      </div>
+      <div class="search-wrap"><input id="roomSearch" placeholder="Search access rooms..." /></div>
+      <div id="roomsList" class="rooms-list"></div>
+    </section>
+
+
+    <section id="vaultPage" class="page vault-page">
+      <button id="vaultBackBtn" class="back">← Access</button>
+
+      <div class="vault-hero">
+        <p class="network">FORWARD VAULT</p>
+        <h2>Your Access Is Being Built.</h2>
+        <p>Your Access Point Inside</p>
+      </div>
+
+      <div class="vault-identity">
+        <div class="vault-avatar" id="vaultAvatar">F</div>
+        <div class="vault-member">
+          <h3 id="vaultName">Forward Member</h3>
+          <p id="vaultMeta">Province · Industry · Age Range</p>
+        </div>
+        <span class="vault-badge">Early Member</span>
+      </div>
+
+      <div class="vault-status-grid">
+        <div class="vault-mini">
+          <span>Access Status</span>
+          <strong>Active</strong>
+        </div>
+        <div class="vault-mini">
+          <span>Vault Status</span>
+          <strong>Preparing</strong>
+        </div>
+        <div class="vault-mini">
+          <span>Member Type</span>
+          <strong id="vaultRole">Member</strong>
+        </div>
+      </div>
+
+      <div class="vault-note">
+        <h3>Forward is building around you.</h3>
+        <p>Your Forward Vault is where future opportunities, support, visibility and benefits will live as the network grows.</p>
+      </div>
+
+      <div class="vault-feature-grid">
+        <div class="vault-feature">
+          <div class="vault-icon">FC</div>
+          <div>
+            <span class="coming">Coming Soon</span>
+            <h3>Forward Credits</h3>
+            <div class="vault-credit-amount">R0.00</div>
+            <p>Earn, unlock and access future member benefits through participation, referrals, tasks, campaigns and approved opportunities.</p>
+          </div>
+        </div>
+
+        <div class="vault-feature">
+          <div class="vault-icon">MO</div>
+          <div>
+            <span class="coming">Coming Soon</span>
+            <h3>My Opportunities</h3>
+            <p>Personalised access to jobs, funding, tenders, programmes, events and business opportunities matched to your profile.</p>
+          </div>
+        </div>
+
+        <div class="vault-feature">
+          <div class="vault-icon">LS</div>
+          <div>
+            <span class="coming">Coming Soon</span>
+            <h3>Legal Support</h3>
+            <p>Future access to basic legal guidance, referrals, document support and legal education through Forward’s partner network.</p>
+          </div>
+        </div>
+
+        <div class="vault-feature">
+          <div class="vault-icon">HW</div>
+          <div>
+            <span class="coming">Coming Soon</span>
+            <h3>Health & Wellness Guidance</h3>
+            <p>Future access to health information, wellness guidance, clinic navigation, mental wellness support and partner referrals.</p>
+          </div>
+        </div>
+
+        <div class="vault-feature vault-wide">
+          <div class="vault-icon">MS</div>
+          <div>
+            <span class="coming">Coming Soon</span>
+            <h3>Member Support Fund</h3>
+            <p>A future support layer designed to help qualifying members access relief, emergency guidance, referrals and selected assistance programmes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="chatPage" class="page">
+      <button id="backBtn" class="back">← Rooms</button>
+      <div class="room-head">
+        <div>
+          <h2 id="roomTitle">Room</h2>
+          <p id="roomInfo">Room information</p>
+        </div>
+        <span id="roomBadge" class="badge">Open</span>
+      </div>
+
+      <div id="adminPanel" class="admin-panel hidden">
+        <h3>Admin Controls</h3>
+        <div class="control-grid">
+          <button id="toggleOpen">Open / Close Chat</button>
+          <button id="toggleReadonly">Read-only</button>
+          <button id="approveRequests">Review Access Requests</button>
+          <button id="manageAdmins">Assign Admin</button>
+        </div>
+        <div id="requestsBox" class="manager-box hidden"></div>
+        <div id="adminsBox" class="manager-box hidden">
+          <input id="adminIdInput" placeholder="Member ID number to make admin" inputmode="numeric" />
+          <button id="makeAdminBtn">Make Admin</button>
+          <div id="adminsList"></div>
+        </div>
+        <div class="admin-post">
+          <textarea id="adminMessage" placeholder="Post an admin message, link or update"></textarea>
+          <input id="mediaUpload" type="file" accept="image/*,video/*,.pdf,.doc,.docx" />
+          <button id="sendAdminPost">Post as Admin</button>
+        </div>
+      </div>
+
+      <div id="messages" class="messages"></div>
+
+      <div id="composer" class="composer">
+        <input id="messageInput" placeholder="Write a message..." />
+        <button id="sendMsg">Send</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    window.SUPABASE_URL = "https://mxzgrbeqgfucmbzedffh.supabase.co";
+    window.SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14emdyYmVxZ2Z1Y21iemVkZmZoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0MzU4OTIsImV4cCI6MjA5NTAxMTg5Mn0.qKAps91lXS3JIUHhucoit05tg4W0gXWHg46Cs6IEDP4";
+    window.FORWARD_ROOMS = [{"name": "General Access & Announcements", "count": "50,000+", "status": "Open", "desc": "Official updates, access notes, and general movement."}, {"name": "SMMEs", "count": "18,000+", "status": "Closed", "desc": "Small businesses, operators, and growth conversations."}, {"name": "Start-Ups", "count": "9,000+", "status": "Closed", "desc": "Early-stage builders, founders, and startup access."}, {"name": "E-commerce", "count": "12,000+", "status": "Closed", "desc": "Online selling, digital stores, and commerce opportunities."}, {"name": "Learnerships & Internships", "count": "28,000+", "status": "Closed", "desc": "Skills access, internships, and structured entry opportunities."}, {"name": "Technology & IT", "count": "5,000+", "status": "Closed", "desc": "Tech, IT, digital tools, software, and infrastructure."}, {"name": "Farmers", "count": "8,000+", "status": "Closed", "desc": "Agriculture, farming opportunities, and sector access."}, {"name": "Green Energy", "count": "6,000+", "status": "Closed", "desc": "Renewable energy, climate, and sustainability opportunities."}, {"name": "Mining", "count": "7,000+", "status": "Closed", "desc": "Mining access, suppliers, careers, and opportunities."}, {"name": "Retail", "count": "14,000+", "status": "Closed", "desc": "Retail, trade, stores, and consumer market opportunities."}, {"name": "Media & Marketing", "count": "10,000+", "status": "Closed", "desc": "Visibility, content, campaigns, and brand opportunities."}, {"name": "Unemployed Youth", "count": "35,000+", "status": "Closed", "desc": "Youth access, pathways, placement, and opportunity movement."}, {"name": "NGOs & NPOs", "count": "7,000+", "status": "Closed", "desc": "Impact organisations, funding, collaboration, and development."}, {"name": "Logistics & Transport", "count": "11,000+", "status": "Closed", "desc": "Transport, delivery, supply chain, and logistics opportunities."}, {"name": "Unemployed", "count": "32,000+", "status": "Closed", "desc": "General opportunity access and movement for job seekers."}, {"name": "People Living With Disabilities", "count": "5,000+", "status": "Closed", "desc": "Inclusive opportunity access and support."}, {"name": "Tenders", "count": "13,000+", "status": "Closed", "desc": "Tender access, procurement, and business opportunities."}, {"name": "Accounting & Finance", "count": "9,000+", "status": "Closed", "desc": "Finance, accounting, tax, funding readiness, and money systems."}, {"name": "Corporate Professionals", "count": "16,000+", "status": "Closed", "desc": "Professional access, executive rooms, and career movement."}, {"name": "Healthcare", "count": "8,000+", "status": "Closed", "desc": "Healthcare workers, services, wellness, and health opportunities."}, {"name": "Hospitality & Tourism", "count": "7,000+", "status": "Closed", "desc": "Hospitality, tourism, events, and service opportunities."}, {"name": "Insurance", "count": "6,000+", "status": "Closed", "desc": "Insurance, risk, financial services, and advisory opportunities."}, {"name": "Other", "count": "24,000+", "status": "Closed", "desc": "Access for sectors not yet listed."}];
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
